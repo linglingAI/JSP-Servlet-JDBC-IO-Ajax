@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//src/edu/bitzh/sct/ls/demo/db/lock/MultiThreadLockDemo.java=UTF-8
+encoding//src/edu/bitzh/sct/ls/demo/db/lock/ThreadOne.java=UTF-8
+encoding//src/edu/bitzh/sct/ls/demo/db/lock/ThreadSingleRetry.java=UTF-8
+encoding//src/edu/bitzh/sct/ls/demo/db/transaction/DatabaseAccessFactory.java=UTF-8
+encoding//src/edu/bitzh/sct/ls/demo/db/transaction/DatabaseConstants.java=UTF-8
+encoding//src/edu/bitzh/sct/ls/demo/db/transaction/TransactionDemo.java=UTF-8
+encoding//src/edu/bitzh/sct/ls/tool/CheckJVM.java=UTF-8
