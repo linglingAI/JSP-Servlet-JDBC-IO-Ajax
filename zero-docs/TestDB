@@ -58,3 +58,6 @@ retry :
 ====使用  hikari Pool, pool size=2000, Min idle size=100 | 10次/100ms | 全部  5000 Thread 执行完毕  Commit: 5000  事物成功率 ： 100 | 时间花费 ： 77 秒 | 每秒成功笔数 ：  64| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
 ==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
 
+2019-08-19 加标注
+2019-08-19 加标注
+2019-08-20 加标注
