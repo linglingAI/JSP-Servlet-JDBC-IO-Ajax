@@ -59,3 +59,5 @@ retry :
 ==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
 
 2019-08-19 加标注
+2019-08-19 加标注
+2019-08-20 加标注
