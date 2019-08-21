@@ -14,6 +14,32 @@ mysql> SELECT @@MAX_CONNECTIONS AS 'Max Connections';
 +-----------------+
 1 row in set
 
+mysql> show variables like '%timeout%'; 
++-----------------------------------+----------+
+| Variable_name                     | Value    |
++-----------------------------------+----------+
+| connect_timeout                   | 10       |
+| delayed_insert_timeout            | 300      |
+| have_statement_timeout            | YES      |
+| innodb_flush_log_at_timeout       | 1        |
+| innodb_lock_wait_timeout          | 50       |
+| innodb_rollback_on_timeout        | OFF      |
+| interactive_timeout               | 28800    |
+| lock_wait_timeout                 | 31536000 |
+| mysqlx_connect_timeout            | 30       |
+| mysqlx_idle_worker_thread_timeout | 60       |
+| mysqlx_interactive_timeout        | 28800    |
+| mysqlx_port_open_timeout          | 0        |
+| mysqlx_read_timeout               | 30       |
+| mysqlx_wait_timeout               | 28800    |
+| mysqlx_write_timeout              | 60       |
+| net_read_timeout                  | 30       |
+| net_write_timeout                 | 60       |
+| rpl_stop_slave_timeout            | 31536000 |
+| slave_net_timeout                 | 60       |
+| wait_timeout                      | 28800    |
++-----------------------------------+----------+
+20 rows in set
 
 retry :
 ====使用 Tomcat Pool, pool size=2000, Min idle size=100 | 10次/100ms | 全部  1000 Thread 执行完毕  Commit: 1000  事物成功率 ： 100 | 时间花费 ： 16 秒 | 每秒成功笔数 ：  62| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
@@ -62,3 +88,28 @@ retry :
 2019-08-19 加标注
 2019-08-20 加标注
 2019-08-20 加标注 02
+
+2019-08-21 
+
+重新启动 win10， 8G/5i,SSD
+run as configuration : 
+-Xmx3048m
+-Xms2024m =2G 
+
+====使用  hikari Pool, pool size=2000, Min idle size=100 | 10次/100ms | 全部  7000 Thread 执行完毕  Commit: 5652  事物成功率 ： 80 | 时间花费 ： 584 秒 | 每秒成功笔数 ：  9| lock exception= 15096| Closed Exception =0| Abandon Exception =0| Null Connection= 1348| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=2000, Min idle size=100 | 10次/100ms | 全部  6000 Thread 执行完毕  Commit: 5010  事物成功率 ： 83 | 时间花费 ： 526 秒 | 每秒成功笔数 ：  9| lock exception= 13541| Closed Exception =0| Abandon Exception =0| Null Connection= 990| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=2000, Min idle size=100 | 10次/100ms | 全部  5000 Thread 执行完毕  Commit: 4708  事物成功率 ： 94 | 时间花费 ： 611 秒 | 每秒成功笔数 ：  7| lock exception= 16000| Closed Exception =0| Abandon Exception =0| Null Connection= 292| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用 Tomcat Pool, pool size=2000, Min idle size=100 | 10次/100ms | 全部  5000 Thread 执行完毕  Commit: 2598  事物成功率 ： 51 | 时间花费 ： 303 秒 | 每秒成功笔数 ：  8| lock exception= 6812| Closed Exception =1| Abandon Exception =0| Null Connection= 2402| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+增加 pool size=1000 （min）
+====使用 Tomcat Pool, pool size=2000, Min idle size=1000 | 10次/100ms | 全部  5000 Thread 执行完毕  Commit: 2119  事物成功率 ： 42 | 时间花费 ： 331 秒 | 每秒成功笔数 ：  6| lock exception= 8023| Closed Exception =1| Abandon Exception =0| Null Connection= 2881| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+

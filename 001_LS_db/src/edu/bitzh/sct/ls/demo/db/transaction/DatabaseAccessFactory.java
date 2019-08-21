@@ -16,9 +16,11 @@ public class DatabaseAccessFactory {
 	public final static int tryTimes = 10;
 	public final static int waitMills = 100;
 
-	public final static int poolSize = 2000;
+	public final static int poolMaxSize = 2000;
+	public final static int poolInitSize = 1000;
+	public final static int poolMaxIdleSize = 500;
 	public final static int poolMinIdleSize = 100;
-
+	
 	static DataSource tomcatPoolDS = null;
 	static HikariDataSource hikariPoolDS = null;
 
@@ -52,7 +54,7 @@ public class DatabaseAccessFactory {
 
 					buildConnectionPoolOfTomcatDBCP(url, userName, password);
 
-					connPrefix = "使用 Tomcat Pool, pool size=" + poolSize + ", Min idle size=" + poolMinIdleSize;
+					connPrefix = "使用 Tomcat Pool, pool max size=" + poolMaxSize + ", Min idle size=" + poolMinIdleSize;
 
 					if (tomcatPoolDS == null) {
 						System.exit(1);
@@ -74,7 +76,7 @@ public class DatabaseAccessFactory {
 
 					buildConnectionPoolOfHikariCP(url, userName, password);
 
-					connPrefix = "使用  hikari Pool, pool size=" + poolSize + ", Min idle size=" + poolMinIdleSize;
+					connPrefix = "使用  hikari Pool, pool size=" + poolMaxSize + ", Min idle size=" + poolMinIdleSize;
 
 					if (hikariPoolDS == null) {
 						System.exit(1);
@@ -116,10 +118,12 @@ public class DatabaseAccessFactory {
 		/**********************************************
 		 * 
 		 */
-		ds.setMaxActive(2000); // 最大有效JDBC连接数目
-		ds.setInitialSize(500); // 初始化的JDBC连接数目
-		ds.setMinIdle(100); // 最小的可以空闲的JDBC连接数目
+		ds.setMaxActive(poolMaxSize); // 最大有效JDBC连接数目
+		ds.setInitialSize(poolInitSize); // 初始化的JDBC连接数目
+		
+		ds.setMinIdle(poolMinIdleSize); // 最小的可以空闲的JDBC连接数目
 		ds.setMaxIdle(500); // 最大的可以空闲的JDBC连接数目
+		
 		ds.setMaxWait(10000); // 最大可以等待的毫秒数， 1000毫秒=1秒， 数值为 10000=10秒
 
 		ds.setRemoveAbandonedTimeout(60);
@@ -173,9 +177,12 @@ public class DatabaseAccessFactory {
 		hikariPoolDS.addDataSourceProperty("prepStmtCacheSize", "250");
 		hikariPoolDS.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
 
-		hikariPoolDS.setMaximumPoolSize(2000);
+		hikariPoolDS.setMaximumPoolSize(poolMaxSize);
+		hikariPoolDS.setMinimumIdle(poolMinIdleSize);
+		
+		hikariPoolDS.setConnectionTestQuery("SELECT 1;");
 		hikariPoolDS.setIdleTimeout(10000);
-		hikariPoolDS.setMinimumIdle(100);
+		
 
 		
         /*
