@@ -18,6 +18,9 @@ class ThreadSingleRetry extends Thread {
 		this.threadPrefix=threadPrefix;
 	}
 	public void run() {
+		
+		long startT=System.currentTimeMillis();;
+		
 		Connection con = null;
 		Statement st = null;
 		int tryTimes = DatabaseAccessFactory.tryTimes;
@@ -62,9 +65,23 @@ class ThreadSingleRetry extends Thread {
 
 				con.commit();
 				
+				//性能跟踪
+				
+				long spendT= System.currentTimeMillis()-startT;
+				if (spendT<=5000) {
+					MultiThreadLockDemo.ThreadMaxUpdateTimeL5++;
+				}
+				if (spendT>5000 & spendT<8000) {
+					MultiThreadLockDemo.ThreadMaxUpdateTimeG5L8++;
+				}
+				if (spendT>MultiThreadLockDemo.ThreadMaxUpdateTime) {
+					MultiThreadLockDemo.ThreadMaxUpdateTime=spendT;
+				}
+				
+				
 				MultiThreadLockDemo.markCommit();
 				
-				System.out.println(this.No + this.threadPrefix+"  线程完 commit---- 剩下多少 =" + MultiThreadLockDemo.ThreadAmt);
+				//System.out.println(this.No + this.threadPrefix+"  线程完 commit---- 剩下多少 =" + MultiThreadLockDemo.ThreadAmt+"  | "+spendT);
 				
 				break;
 				

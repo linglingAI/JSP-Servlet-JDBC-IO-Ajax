@@ -25,8 +25,13 @@ public class MultiThreadLockDemo {
 	
 	public static int ThreadAmtOfGoodToCommit=0;
 	
-	public static int ThreadAmtOLD=5000;  // 设置多少 Thread 线程并发测试
+	public static int ThreadAmtOLD=1000;  // 设置多少 Thread 线程并发测试
 	public static int ThreadAmt=-1;
+	
+	public static long ThreadMaxUpdateTime=0;
+	public static long ThreadMaxUpdateTimeL5=0;
+	public static long ThreadMaxUpdateTimeG5L8=0;
+	
 	public static long s=-1;
 	
 	
@@ -96,17 +101,20 @@ public class MultiThreadLockDemo {
 			System.err.println("===="+DatabaseAccessFactory.connPrefix
 					+" | "+DatabaseAccessFactory.tryTimes+"次/"+DatabaseAccessFactory.waitMills+"ms | 全部  "+MultiThreadLockDemo.ThreadAmtOLD
 					+" Thread 执行完毕  Commit: "+ThreadAmtOfGoodToCommit
-					+"  事物成功率 ： "+Math.floorDiv(ThreadAmtOfGoodToCommit*100,ThreadAmtOLD)
-					+" | 时间花费 ： "+(System.currentTimeMillis()-MultiThreadLockDemo.s)/1000+" 秒 "
-					+"| 每秒成功笔数 ：  "+Math.floorDiv(ThreadAmtOfGoodToCommit,(System.currentTimeMillis()-MultiThreadLockDemo.s)/1000)
+					+"| 事物成功率 ： "+Math.floorDiv(ThreadAmtOfGoodToCommit*100,ThreadAmtOLD)
+					+"| 时间花费 ： "+(System.currentTimeMillis()-MultiThreadLockDemo.s)/1000+" 秒 "
+				    +"| 每秒成功笔数 ：  "+Math.floorDiv(ThreadAmtOfGoodToCommit,(System.currentTimeMillis()-MultiThreadLockDemo.s)/1000)
+				    +"| 小于5秒的笔数 ：  "+MultiThreadLockDemo.ThreadMaxUpdateTimeL5
+					+"| 小于8秒且大于5秒的笔数 ：  "+MultiThreadLockDemo.ThreadMaxUpdateTimeG5L8
+					+"| 最长操作时间= "+MultiThreadLockDemo.ThreadMaxUpdateTime/1000+" (秒)"	
 					+"| lock exception= "+MultiThreadLockDemo.ThreadAmtOfExceptionLock
 					+"| Closed Exception ="+MultiThreadLockDemo.ThreadAmtOfExceptionConnClosed
 					+"| Abandon Exception ="+MultiThreadLockDemo.ThreadAmtOfExceptionConnAbandon
 			        +"| Null Connection= "+MultiThreadLockDemo.ThreadAmtOfNullConn
 			        +"| Exception="+MultiThreadLockDemo.ThreadAmtOfException
 			        +"| Too Many Connection Exception = "+MultiThreadLockDemo.ThreadAmtOfExceptionTooManyConn
-			        +" || Isolation level= "+DatabaseAccessFactory.isoLevel
-					);  
+			        				
+			        );  
 			System.err.println("==== "+currrentSql);
 		}
 	}

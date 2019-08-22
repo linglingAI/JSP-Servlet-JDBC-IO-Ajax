@@ -16,10 +16,10 @@ public class DatabaseAccessFactory {
 	public final static int tryTimes = 10;
 	public final static int waitMills = 100;
 
-	public final static int poolMaxSize = 2000;
-	public final static int poolInitSize = 1000;
-	public final static int poolMaxIdleSize = 500;
-	public final static int poolMinIdleSize = 100;
+	public final static int poolMaxSize = 40;
+	public final static int poolInitSize = 20;
+	public final static int poolMaxIdleSize = 10;
+	public final static int poolMinIdleSize = 20;
 	
 	static DataSource tomcatPoolDS = null;
 	static HikariDataSource hikariPoolDS = null;

@@ -112,4 +112,145 @@ run as configuration :
 ====使用 Tomcat Pool, pool size=2000, Min idle size=1000 | 10次/100ms | 全部  5000 Thread 执行完毕  Commit: 2119  事物成功率 ： 42 | 时间花费 ： 331 秒 | 每秒成功笔数 ：  6| lock exception= 8023| Closed Exception =1| Abandon Exception =0| Null Connection= 2881| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
 ==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
 
+====使用  hikari Pool, pool size=2000, Min idle size=100 | 10次/100ms | 全部  5000 Thread 执行完毕  Commit: 4741  事物成功率 ： 94 | 时间花费 ： 647 秒 | 每秒成功笔数 ：  7| lock exception= 16737| Closed Exception =0| Abandon Exception =0| Null Connection= 259| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
 
+
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  5000 Thread 执行完毕  Commit: 5000  事物成功率 ： 100 | 时间花费 ： 13 秒 | 每秒成功笔数 ：  384| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用 Tomcat Pool, pool max size=20, Min idle size=10 | 10次/100ms | 全部  5000 Thread 执行完毕  Commit: 5000  事物成功率 ： 100 | 时间花费 ： 15 秒 | 每秒成功笔数 ：  333| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用 Tomcat Pool, pool max size=20, Min idle size=10 | 10次/100ms | 全部  5000 Thread 执行完毕  Commit: 5000  事物成功率 ： 100 | 时间花费 ： 17 秒 | 每秒成功笔数 ：  294| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+
+1W：
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  10000 Thread 执行完毕  Commit: 10000  事物成功率 ： 100 | 时间花费 ： 25 秒 | 每秒成功笔数 ：  400| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  20000 Thread 执行完毕  Commit: 20000  事物成功率 ： 100 | 时间花费 ： 63 秒 | 每秒成功笔数 ：  317| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  25000 Thread 执行完毕  Commit: 25000  事物成功率 ： 100 | 时间花费 ： 46 秒 | 每秒成功笔数 ：  543| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  30000 Thread 执行完毕  Commit: 30000  事物成功率 ： 100 | 时间花费 ： 46 秒 | 每秒成功笔数 ：  652| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+34950序号：  ====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  35000 Thread 执行完毕  Commit: 35000  事物成功率 ： 100 | 时间花费 ： 52 秒 | 每秒成功笔数 ：  673| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+
+DB amount < 40000
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 40000  事物成功率 ： 100 | 时间花费 ： 44 秒 | 每秒成功笔数 ：  909| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+DB amount < 40000
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 40000  事物成功率 ： 100 | 时间花费 ： 107 秒 | 每秒成功笔数 ：  373| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+DB amount > 40000
+
+====使用 Tomcat Pool, pool max size=20, Min idle size=10 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 32474  事物成功率 ： 81 | 时间花费 ： 187 秒 | 每秒成功笔数 ：  173| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 7526| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+
+mysql> show global status like 'Max_used_connections';
++----------------------+-------+
+| Variable_name        | Value |
++----------------------+-------+
+| Max_used_connections | 22     |
++----------------------+-------+
+1 row in set
+
+mysql> SELECT @@MAX_CONNECTIONS AS 'Max Connections';
++-----------------+
+| Max Connections |
++-----------------+
+|            2000 |
++-----------------+
+1 row in set
+
+mysql> 
+HD : win10， 8G/5i,SSD,4Core
+Mysql : 22/2000=1%
+JVM : -Xmx3048m =3G
+-     -Xms2024m =2G
+ 
+====使用 Tomcat Pool, pool max size=20, Min idle size=10 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 26876  事物成功率 ： 67 | 时间花费 ： 220 秒 | 每秒成功笔数 ：  122| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 13124| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 40000  事物成功率 ： 100 | 时间花费 ： 118 秒 | 每秒成功笔数 ：  338| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用 Tomcat Pool, pool max size=20, Min idle size=10 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 28062  事物成功率 ： 70 | 时间花费 ： 186 秒 | 每秒成功笔数 ：  150| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 11938| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+
+Best 最佳 :  4w/110s -->100左右 秒内4万个用户 ，每个用户更新一次数据库的同一表的同一行。  思考：  如果更新不同的行，那么mysql行锁造成的问题是否减少？  
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 40000  事物成功率 ： 100 | 时间花费 ： 110 秒 | 每秒成功笔数 ：  363| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 40000  事物成功率 ： 100 | 时间花费 ： 113 秒 | 每秒成功笔数 ：  353| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+ 
+ --No configuration  
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 40000  事物成功率 ： 100 | 时间花费 ： 111 秒 | 每秒成功笔数 ：  360| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 40000  事物成功率 ： 100 | 时间花费 ： 115 秒 | 每秒成功笔数 ：  347| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+   
+--- 5W ： with configuration
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  50000 Thread 执行完毕  Commit: 50000  事物成功率 ： 100 | 时间花费 ： 154 秒 | 每秒成功笔数 ：  324| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+
+
+
+
+--- 5w, mysql max conn=40
+====使用  hikari Pool, pool size=20, Min idle size=10 | 10次/100ms | 全部  50000 Thread 执行完毕  Commit: 50000  事物成功率 ： 100 | 时间花费 ： 151 秒 | 每秒成功笔数 ：  331| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+-- 5w, mysql max conn=50
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  50000 Thread 执行完毕  Commit: 50000  事物成功率 ： 100 | 时间花费 ： 146 秒 | 每秒成功笔数 ：  342| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0 || Isolation level= null
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+-4W, max 101 S
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  40000 Thread 执行完毕  Commit: 40000  事物成功率 ： 100 | 时间花费 ： 108 秒 | 每秒成功笔数 ：  370| 最长操作时间= 101205 毫秒（1/1000秒）| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+-4W, max 179 S
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  50000 Thread 执行完毕  Commit: 50000  事物成功率 ： 100 | 时间花费 ： 179 秒 | 每秒成功笔数 ：  279| 最长操作时间= 179 (秒)| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  10000 Thread 执行完毕  Commit: 10000| 事物成功率 ： 100| 时间花费 ： 26 秒 | 每秒成功笔数 ：  384| 小于5秒的笔数 ：  272| 小于8秒且大于5秒的笔数 ：  1147| 最长操作时间= 26 (秒)| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  10000 Thread 执行完毕  Commit: 10000| 事物成功率 ： 100| 时间花费 ： 30 秒 | 每秒成功笔数 ：  333| 小于5秒的笔数 ：  134| 小于8秒且大于5秒的笔数 ：  174| 最长操作时间= 30 (秒)| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  300 Thread 执行完毕  Commit: 300| 事物成功率 ： 100| 时间花费 ： 3 秒 | 每秒成功笔数 ：  100| 小于5秒的笔数 ：  300| 小于8秒且大于5秒的笔数 ：  0| 最长操作时间= 3 (秒)| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  500 Thread 执行完毕  Commit: 500| 事物成功率 ： 100| 时间花费 ： 3 秒 | 每秒成功笔数 ：  166| 小于5秒的笔数 ：  500| 小于8秒且大于5秒的笔数 ：  0| 最长操作时间= 3 (秒)| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  600 Thread 执行完毕  Commit: 600| 事物成功率 ： 100| 时间花费 ： 3 秒 | 每秒成功笔数 ：  200| 小于5秒的笔数 ：  600| 小于8秒且大于5秒的笔数 ：  0| 最长操作时间= 3 (秒)| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  700 Thread 执行完毕  Commit: 700| 事物成功率 ： 100| 时间花费 ： 4 秒 | 每秒成功笔数 ：  175| 小于5秒的笔数 ：  700| 小于8秒且大于5秒的笔数 ：  0| 最长操作时间= 4 (秒)| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  800 Thread 执行完毕  Commit: 800| 事物成功率 ： 100| 时间花费 ： 4 秒 | 每秒成功笔数 ：  200| 小于5秒的笔数 ：  800| 小于8秒且大于5秒的笔数 ：  0| 最长操作时间= 4 (秒)| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  900 Thread 执行完毕  Commit: 900| 事物成功率 ： 100| 时间花费 ： 4 秒 | 每秒成功笔数 ：  225| 小于5秒的笔数 ：  900| 小于8秒且大于5秒的笔数 ：  0| 最长操作时间= 4 (秒)| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
+
+小于8秒且大于5秒的笔数 ：  13 : 全部  1000 Thread
+
+====使用  hikari Pool, pool size=40, Min idle size=20 | 10次/100ms | 全部  1000 Thread 执行完毕  Commit: 1000| 事物成功率 ： 100| 时间花费 ： 5 秒 | 每秒成功笔数 ：  200| 小于5秒的笔数 ：  987| 小于8秒且大于5秒的笔数 ：  13| 最长操作时间= 5 (秒)| lock exception= 0| Closed Exception =0| Abandon Exception =0| Null Connection= 0| Exception=0| Too Many Connection Exception = 0
+==== update seckill_tbl_01 set amount =amount-1 where name='手机01' AND category='秒杀' AND amount >0 ;
