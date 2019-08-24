@@ -1,0 +1,19 @@
+
+1）  mysql>  set GLOBAL max_connections = 500;
+Query OK, 0 rows affected
+
+2ï¼‰ mysql>  show global status like 'Max_used_connections';
++----------------------+-------+
+| Variable_name        | Value |
++----------------------+-------+
+| Max_used_connections | 5001  |
++----------------------+-------+
+1 row in set
+
+2）  mysql> SELECT @@MAX_CONNECTIONS AS 'Max Connections';
++-----------------+
+| Max Connections |
++-----------------+
+|            5000 |
++-----------------+
+1 row in set

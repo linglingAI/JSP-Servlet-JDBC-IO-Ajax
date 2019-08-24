@@ -13,13 +13,13 @@ public class DatabaseAccessFactory {
 
 	public static String connPrefix = null;
 
-	public final static int tryTimes = 10;
-	public final static int waitMills = 100;
+	public static int tryTimes = 10;
+	public static int waitMills = 100;
 
-	public final static int poolMaxSize = 40;
-	public final static int poolInitSize = 20;
-	public final static int poolMaxIdleSize = 10;
-	public final static int poolMinIdleSize = 20;
+	public static int poolMaxSize = 150;
+	public static int poolInitSize = 150;
+	public static int poolMaxIdleSize = 10;
+	public static int poolMinIdleSize = 20;
 	
 	static DataSource tomcatPoolDS = null;
 	static HikariDataSource hikariPoolDS = null;
@@ -54,7 +54,7 @@ public class DatabaseAccessFactory {
 
 					buildConnectionPoolOfTomcatDBCP(url, userName, password);
 
-					connPrefix = "使用 Tomcat Pool, pool max size=" + poolMaxSize + ", Min idle size=" + poolMinIdleSize;
+					connPrefix = " Using  Tomcat Pool, pool max size=" + poolMaxSize + ", Min idle size=" + poolMinIdleSize;
 
 					if (tomcatPoolDS == null) {
 						System.exit(1);
@@ -76,7 +76,7 @@ public class DatabaseAccessFactory {
 
 					buildConnectionPoolOfHikariCP(url, userName, password);
 
-					connPrefix = "使用  hikari Pool, pool size=" + poolMaxSize + ", Min idle size=" + poolMinIdleSize;
+					connPrefix = "Using  hikari Pool, pool size=" + poolMaxSize + ", Min idle size=" + poolMinIdleSize;
 
 					if (hikariPoolDS == null) {
 						System.exit(1);

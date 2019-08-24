@@ -11,10 +11,17 @@ class ThreadSingleRetry extends Thread {
 	int No = -1;
 	String sql;
 	String threadPrefix;
+	
+	String[] mSql=null;
 
 	public ThreadSingleRetry(int No,String sql,String threadPrefix) {
 		this.No = No;
 		this.sql=sql;
+		this.threadPrefix=threadPrefix;
+	}
+	public ThreadSingleRetry(int No,String[] sqls,String threadPrefix) {
+		this.No = No;
+		this.mSql=sqls;
 		this.threadPrefix=threadPrefix;
 	}
 	public void run() {
@@ -36,9 +43,11 @@ class ThreadSingleRetry extends Thread {
 					try {
 						con = DatabaseAccessFactory.getConnection(DatabaseConstants.URL, DatabaseConstants.USER,
 								DatabaseConstants.PWD); // connection连接的代�?就�?�??供了注�?�?�?使用�?�例
-						if (con != null && !con.isClosed() && con.isValid(1)) {
+						if (con != null && !con.isClosed() && con.isValid(1)){
 							getGoodConnection = true;
 							break;
+						}else {
+							MultiThreadLockDemo.ThreadAmtOfTryTimes++;
 						}
 						Thread.sleep(waitMills);
 					} catch (Exception e) {
@@ -57,26 +66,23 @@ class ThreadSingleRetry extends Thread {
 					return;
 				}
 				con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
-				con.setAutoCommit(false); // �??交事务 方便看到阻塞结果
-
+				con.setAutoCommit(false); // 
+				
 				st = con.createStatement();
 
-				st.execute(MultiThreadLockDemo.currrentSql); // 第一�?�天数�?�库更新命令
+				if (this.mSql!=null) {
+					for(String sql:mSql) {
+						st.execute(sql); 
+					}
+				}else {
+				   st.execute(this.sql); 
+				}
 
+				
 				con.commit();
 				
 				//性能跟踪
-				
-				long spendT= System.currentTimeMillis()-startT;
-				if (spendT<=5000) {
-					MultiThreadLockDemo.ThreadMaxUpdateTimeL5++;
-				}
-				if (spendT>5000 & spendT<8000) {
-					MultiThreadLockDemo.ThreadMaxUpdateTimeG5L8++;
-				}
-				if (spendT>MultiThreadLockDemo.ThreadMaxUpdateTime) {
-					MultiThreadLockDemo.ThreadMaxUpdateTime=spendT;
-				}
+				MultiThreadLockDemo.markDuration(System.currentTimeMillis()-startT);
 				
 				
 				MultiThreadLockDemo.markCommit();
@@ -112,6 +118,7 @@ class ThreadSingleRetry extends Thread {
 					MultiThreadLockDemo.markOtherExceptionn();
 				}
 				System.out.println(this.No + this.threadPrefix+"  线程 Error ----------->" + e.getMessage());
+				
 				// e.printStackTrace();
 				
 				if (MultiThreadLockDemo.isExceptionOfTransactionRetry) {
