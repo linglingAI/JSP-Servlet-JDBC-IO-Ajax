@@ -1,0 +1,17 @@
+------------- Windows 中的进程，端口和程序的命令,
+1)  输入您需要查询 的端口，例如：3306
+ netstat -aon | findstr "3306"
+
+2）根据PID（进程号）查询被占用，例如进程号为：456
+输入：tasklist | findstr "456"
+
+3) 查找运行中的程序 eclipse.exe 
+C> tasklist -fi  "imagename eq eclipse.exe"
+
+4）杀掉 电脑中所有运行的程序 nginx.exe
+C:> taskkill /f /t /im nginx.exe
+
+5）杀掉 PID 24156
+C:>tskill 24156
+或 :
+C:>taskkill /PID 24156
